@@ -3,10 +3,9 @@ import { Link, useParams } from 'react-router-dom';
 import products from '../data';
 import { useState } from 'react';
 import Rating from '../components/Rating';
-import FeaturedProducts from '../components/FeaturedProducts';
+/* import FeaturedProducts from '../components/FeaturedProducts'; */
 
 function SingleProduct() {
-  const [name, setName] = useState('default');
   const [product, setProduct] = useState('surfboard');
   console.log(useParams);
   const { id } = useParams();

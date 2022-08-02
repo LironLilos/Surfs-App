@@ -2,7 +2,7 @@ const products = [
   {
     id: 1,
     name: 'SUP SURFTECH GENERATOR',
-    category: 'sap',
+    category: 'sup',
     img: '/images/products/SUP SURFTECH GENERATOR.jpg',
     price: 720,
     countInStock: 1,
@@ -14,7 +14,7 @@ const products = [
   {
     id: 2,
     name: 'SUP SURFTECH THE LIDO',
-    category: 'sap',
+    category: 'sup',
     img: '/images/products/SUP SURFTECH THE LIDO.jpg',
     price: 2000,
     countInStock: 2,
@@ -25,7 +25,7 @@ const products = [
   {
     id: 3,
     name: 'SURFTECH DREAMLINER SURFBOARD',
-    category: 'sap',
+    category: 'sup',
     img: '/images/products/SURFTECH DREAMLINER SURFBOARD.jpg',
     price: 720,
     countInStock: 2,
@@ -36,7 +36,7 @@ const products = [
   {
     id: 4,
     name: 'SURFTECH X PURA VIDA TCP 2-PIECE ADJUSTABLE PADDLE',
-    category: 'sap',
+    category: 'sup',
     img: '/images/products/SURFTECH X PURA VIDA TCP 2-PIECE ADJUSTABLE PADDLE.jpg',
     price: 720,
     countInStock: 2,
@@ -47,7 +47,7 @@ const products = [
   {
     id: 5,
     name: 'FORRO AERO RACK PADS 28 ROOF PADS',
-    category: 'sap',
+    category: 'sup',
     img: '/images/products/FORRO AERO RACK PADS 28 ROOF PADS.jpg',
     price: 1200,
     countInStock: 2,
@@ -58,7 +58,7 @@ const products = [
   {
     id: 6,
     name: 'SEAGLASS 2-PIECE ADJUSTABLE PADDLE',
-    category: 'sap',
+    category: 'sup',
     img: '/images/products/SEAGLASS 2-PIECE ADJUSTABLE PADDLE.jpg',
     price: 720,
     countInStock: 2,
@@ -69,7 +69,7 @@ const products = [
   {
     id: 7,
     name: 'SWIFFER-FISH 2-PIECE ADJUSTABLE PADDLE',
-    category: 'sap',
+    category: 'sup',
     img: '/images/products/SWIFFER-FISH 2-PIECE ADJUSTABLE PADDLE.jpg',
     price: 720,
     countInStock: 2,
@@ -80,7 +80,7 @@ const products = [
   {
     id: 8,
     name: 'SUP NSP O2 ALLROUNDER LT',
-    category: 'sap',
+    category: 'sup',
     img: '/images/products/TABLA DE SUP NSP O2 ALLROUNDER LT.jpg',
     price: 720,
     countInStock: 2,
@@ -91,7 +91,7 @@ const products = [
   {
     id: 9,
     name: 'SUP FANATIC FLY AIR',
-    category: 'sap',
+    category: 'sup',
     img: '/images/products/SUP FANATIC FLY AIR.jpg',
     price: 1200,
     countInStock: 2,
@@ -102,7 +102,7 @@ const products = [
   {
     id: 10,
     name: 'ROXY ALUMINIUM PADDLE 3 PIECES PADDLE',
-    category: 'sap',
+    category: 'sup',
     img: '/images/products/ROXY ALUMINIUM PADDLE 3 PIECES PADDLE.jpg',
     price: 2000,
     countInStock: 2,
@@ -278,7 +278,7 @@ const products = [
   {
     id: 26,
     name: 'VENON GOPHER 7 0 SURFBOARD',
-    category: 'surf',
+    category: 'wind-surf',
     img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
     price: 720,
     countInStock: 2,
@@ -289,7 +289,7 @@ const products = [
   {
     id: 27,
     name: 'VENON GOPHER 7 0 SURFBOARD',
-    category: 'surf',
+    category: 'wind-surf',
     img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
     price: 720,
     countInStock: 2,
@@ -300,7 +300,7 @@ const products = [
   {
     id: 28,
     name: 'VENON GOPHER 7 0 SURFBOARD',
-    category: 'surf',
+    category: 'wind-surf',
     img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
     price: 720,
     countInStock: 2,
@@ -311,7 +311,7 @@ const products = [
   {
     id: 29,
     name: 'VENON GOPHER 7 0 SURFBOARD',
-    category: 'surf',
+    category: 'wind-surf',
     img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
     price: 720,
     countInStock: 2,
@@ -322,7 +322,7 @@ const products = [
   {
     id: 30,
     name: 'VENON GOPHER 7 0 SURFBOARD',
-    category: 'surf',
+    category: 'wind-surf',
     img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
     price: 720,
     countInStock: 2,
@@ -333,7 +333,7 @@ const products = [
   {
     id: 31,
     name: 'VENON GOPHER 7 0 SURFBOARD',
-    category: 'surf',
+    category: 'wind-surf',
     img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
     price: 720,
     countInStock: 2,
@@ -344,7 +344,7 @@ const products = [
   {
     id: 32,
     name: 'VENON GOPHER 7 0 SURFBOARD',
-    category: 'surf',
+    category: 'kite-surf',
     img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
     price: 720,
     countInStock: 2,
@@ -355,7 +355,7 @@ const products = [
   {
     id: 33,
     name: 'VENON GOPHER 7 0 SURFBOARD',
-    category: 'surf',
+    category: 'kite-surf',
     img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
     price: 720,
     countInStock: 2,
@@ -366,7 +366,7 @@ const products = [
   {
     id: 34,
     name: 'VENON GOPHER 7 0 SURFBOARD',
-    category: 'surf',
+    category: 'kite-surf',
     img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
     price: 720,
     countInStock: 2,
@@ -377,7 +377,18 @@ const products = [
   {
     id: 35,
     name: 'VENON GOPHER 7 0 SURFBOARD',
-    category: 'surf',
+    category: 'kite-surf',
+    img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
+    price: 720,
+    countInStock: 2,
+    rating: 4,
+    numberOfReviews: 12,
+    description: 'lorem ipsum',
+  },
+  {
+    id: 36,
+    name: 'VENON GOPHER 7 0 SURFBOARD',
+    category: 'kite-surf',
     img: '/images/products/VENON GOPHER 7 0 SURFBOARD.jpg',
     price: 720,
     countInStock: 2,

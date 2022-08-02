@@ -1,11 +1,35 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
+const sportProducts = ['surf', 'skate', 'sup', 'wind', 'kite'];
 
 function Categories() {
+  const [sportProduct, setSportProduct] = useState('');
+
   return (
     <section className="section-padding categories">
-      <div className="category-box surf-box">
+      {sportProducts.map((sportProduct) => {
+        return (
+          <div className={`category-box ${sportProduct}-box`}>
+            <h2>{sportProduct}</h2>
+            <Link
+              onClick={() => {
+                setSportProduct(sportProduct);
+                console.log(sportProduct);
+              }}
+              to={{ pathname: '/products', sportProduct: { sportProduct } }}
+            >
+              More Products
+            </Link>
+          </div>
+        );
+      })}
+      {/*   <div className="category-box surf-box">
         <h2>SURF</h2>
-        <button>More Products</button>
+        <Link to="/products">
+          <button>More Products</button>
+        </Link>
       </div>
       <div className="category-box skate-box">
         <h2>SKATE</h2>
@@ -22,7 +46,7 @@ function Categories() {
       <div className="category-box kite-box sec-raw">
         <h2>KITE SURF</h2>
         <button>More Products</button>
-      </div>
+      </div> */}
     </section>
   );
 }
