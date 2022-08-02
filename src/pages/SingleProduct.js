@@ -44,7 +44,7 @@ function SingleProduct() {
           <span>{product.description}</span>
         </div>
       </div>
-      <FeaturedProducts />
+      {/* <FeaturedProducts /> */}
     </section>
   );
 }
