@@ -9,9 +9,9 @@ function Categories() {
 
   return (
     <section className="section-padding categories">
-      {sportProducts.map((sportProduct) => {
+      {sportProducts.map((sportProduct, index) => {
         return (
-          <div className={`category-box ${sportProduct}-box`}>
+          <div key={index} className={`category-box ${sportProduct}-box`}>
             <h2>{sportProduct}</h2>
             <Link
               onClick={() => {
@@ -20,7 +20,8 @@ function Categories() {
               }}
               to={{ pathname: '/products', sportProduct: { sportProduct } }}
             >
-              More Products
+              {' '}
+              <button>More Products</button>
             </Link>
           </div>
         );

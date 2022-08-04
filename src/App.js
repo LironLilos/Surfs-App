@@ -8,6 +8,7 @@ import AboutPage from './pages/AboutPage';
 import BeachCamPage from './pages/BeachCamPage';
 import ContactPage from './pages/ContactPage';
 import SingleProduct from './pages/SingleProduct';
+import CartPage from './pages/CartPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="about" element={<AboutPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="/:id" element={<SingleProduct />} />
+        <Route path="cart" element={<CartPage />} />
       </Routes>
       <Footer />
     </Router>

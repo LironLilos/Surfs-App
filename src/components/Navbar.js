@@ -57,14 +57,20 @@ function Navbar() {
             </li>
           ) : (
             <li>
-              <FaShoppingCart />
+              <Link to={'/cart'}>
+                <FaShoppingCart />
+              </Link>
             </li>
           )}
         </ul>
       </div>
-      <div className="menu-icon" onClick={() => setShowNavbar(!showNavbar)}>
-        <FaShoppingCart />
-        {showNavbar ? <FaTimes /> : <FaBars />}
+      <div className="menu-icon">
+        <Link to={'/cart'}>
+          <FaShoppingCart />
+        </Link>
+        <div onClick={() => setShowNavbar(!showNavbar)}>
+          {showNavbar ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
     </section>
   );

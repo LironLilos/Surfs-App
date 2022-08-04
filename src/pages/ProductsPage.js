@@ -21,10 +21,12 @@ function ProductsPage() {
       <div className="products-page-header">
         <h2>ONLINE SURF SHOP</h2>
       </div>
-      <div className="small-categories">
-        {sportCategories.map((sport) => {
+      <div className="filters">
+        <h5>category</h5>
+        {sportCategories.map((sport, index) => {
           return (
             <button
+              key={index}
               onClick={() => {
                 setCategoryProduct(sport);
               }}

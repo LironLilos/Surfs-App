@@ -12,7 +12,7 @@ function Product({ id, name, img, price, rating, numberOfReviews }) {
         <Rating rating={rating} numberOfReviews={numberOfReviews} />
         <h4>{price}$</h4>
       </div>
-      <Link to={'/products'} className="cart">
+      <Link to={'/cart'} className="cart">
         <FaShoppingCart />
       </Link>
       <Link to={`/${id}`} className="details">
