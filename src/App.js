@@ -9,6 +9,7 @@ import BeachCamPage from './pages/BeachCamPage';
 import ContactPage from './pages/ContactPage';
 import SingleProduct from './pages/SingleProduct';
 import CartPage from './pages/CartPage';
+import Registration from './pages/Registration';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="contact" element={<ContactPage />} />
         <Route path="/:id" element={<SingleProduct />} />
         <Route path="cart" element={<CartPage />} />
+        <Route path="registration" element={<Registration />} />
       </Routes>
       <Footer />
     </Router>

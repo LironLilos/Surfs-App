@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaBars, FaTimes } from 'react-icons/fa';
+import { FaShoppingCart, FaBars, FaTimes, FaRegUser } from 'react-icons/fa';
 
 const menuList = [
   {
@@ -57,6 +57,9 @@ function Navbar() {
             </li>
           ) : (
             <li>
+              <Link to={'/registration'}>
+                <FaRegUser />
+              </Link>
               <Link to={'/cart'}>
                 <FaShoppingCart />
               </Link>
@@ -65,9 +68,13 @@ function Navbar() {
         </ul>
       </div>
       <div className="menu-icon">
+        <Link to={'/registration'}>
+          <FaRegUser />
+        </Link>
         <Link to={'/cart'}>
           <FaShoppingCart />
         </Link>
+
         <div onClick={() => setShowNavbar(!showNavbar)}>
           {showNavbar ? <FaTimes /> : <FaBars />}
         </div>

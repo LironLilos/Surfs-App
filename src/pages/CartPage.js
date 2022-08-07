@@ -19,7 +19,7 @@ const cartItems = [
     name: 'SUP SURFTECH THE LIDO',
     category: 'sup',
     img: '/images/products/SUP SURFTECH THE LIDO.jpg',
-    price: 2000,
+    price: 200,
     countInStock: 2,
     rating: 5,
     numberOfReviews: 12,
@@ -42,7 +42,7 @@ function CartPage() {
     <section className="cart-page">
       <div className="cart-container">
         <div class="cart-header">
-          <h4 class="cart-title">Shopping Cart</h4>
+          <h3 class="cart-title">Shopping Cart</h3>
           <button className="btn clear-btn">Remove All</button>
         </div>
         <div class="cart-items">
