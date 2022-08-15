@@ -111,6 +111,10 @@ button,
   display: none;
   align-items: center;
 }
+nav svg {
+  width: 2rem;
+  fill: var(--clr-white);
+}
 
 @media screen and (max-width: 800px) {
   .logo {
@@ -455,6 +459,7 @@ footer .copyright {
   text-align: center;
   transition: transform 0.2s;
   border-radius: 5px;
+  text-transform: uppercase;
 }
 .sec-raw {
   height: 30vh;
@@ -667,4 +672,35 @@ hr {
 }
 .item-details {
   display: flex;
+}
+/*Signin*/
+.signin {
+  display: block;
+  width: 100%;
+  max-width: 40rem;
+  margin: 4rem auto 6rem;
+  border: 1px solid #cce7d0;
+  border-radius: 1rem;
+}
+.wrap {
+  padding: 10px;
+}
+.social-signin {
+  margin: 3rem auto 0;
+}
+.wrap h2 {
+  font-size: 2.2rem;
+  line-height: 1;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+.signin button {
+  display: block;
+  line-height: 1;
+  margin: 0 auto;
 }

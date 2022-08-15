@@ -1,7 +1,10 @@
 import React from 'react';
 import { FaTrash } from 'react-icons/fa';
+import { useGlobalContext } from '../components/Context';
+import { cartItems } from '../pages/CartPage';
 
-function CartItem({ id, name, price, category, img }) {
+function CartItem({ id, name, price, category, img, amount }) {
+  const { removeItem, increaseItem, decreaseItem } = useGlobalContext();
   return (
     <div class="cart-item">
       <div className="item-details">
@@ -11,13 +14,21 @@ function CartItem({ id, name, price, category, img }) {
           <h5 class="item-title">{name}</h5>
           <h5 class="item-price">{price}$</h5>
           <div class="counter">
-            <div class="increase-btn">-</div>
-            <div class="amount">2</div>
-            <div class="increase-btn">+</div>
+            <button class="increase-btn" onClick={() => decreaseItem(id)}>
+              -
+            </button>
+            <div class="amount">{amount}</div>
+            <button class="increase-btn" onClick={() => increaseItem(id)}>
+              +
+            </button>
           </div>
         </div>
       </div>
-      <button type="button" className="remove-btn">
+      <button
+        type="button"
+        className="remove-btn"
+        onClick={() => removeItem(id)}
+      >
         <FaTrash />
       </button>
     </div>

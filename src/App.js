@@ -10,6 +10,8 @@ import ContactPage from './pages/ContactPage';
 import SingleProduct from './pages/SingleProduct';
 import CartPage from './pages/CartPage';
 import Registration from './pages/Registration';
+import Login from './pages/LoginPage';
+import { useGlobalContext } from './components/Context';
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
         <Route path="/:id" element={<SingleProduct />} />
         <Route path="cart" element={<CartPage />} />
         <Route path="registration" element={<Registration />} />
+        <Route path="login" element={<Login />} />
       </Routes>
       <Footer />
     </Router>

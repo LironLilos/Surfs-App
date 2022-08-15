@@ -13,6 +13,7 @@ const sportCategories = [
   'kite-surf',
 ];
 
+const reducer = (state, action) => {};
 function ProductsPage() {
   const [categoryProduct, setCategoryProduct] = useState('all');
 

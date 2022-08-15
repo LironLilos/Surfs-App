@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaBars, FaTimes, FaRegUser } from 'react-icons/fa';
+import { useGlobalContext } from './Context';
 
 const menuList = [
   {
@@ -32,6 +33,8 @@ const menuList = [
 
 function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
+  const { amount } = useGlobalContext();
+
   return (
     <section className="header">
       <Link to="/">
@@ -60,8 +63,9 @@ function Navbar() {
               <Link to={'/registration'}>
                 <FaRegUser />
               </Link>
-              <Link to={'/cart'}>
+              <Link to={'/cart'} className="cart-btn">
                 <FaShoppingCart />
+                <p>{amount}</p>
               </Link>
             </li>
           )}

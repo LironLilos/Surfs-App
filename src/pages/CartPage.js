@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from '../components/CartItem';
-const cartItems = [
+import { useGlobalContext } from '../components/Context';
+
+export const cartItems = [
   {
     id: 1,
     name: 'SUP SURFTECH GENERATOR',
@@ -13,6 +15,7 @@ const cartItems = [
     numberOfReviews: 18,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl arcu, iaculis at sem et, vulputate consectetur magna. Integer nec nisi eu est semper aliquet at vel lectus. Proin malesuada turpis vel varius mollis. Ut hendrerit neque at turpis accumsan iaculis. Cras in ligula non dolor accumsan malesuada.',
+    amount: 1,
   },
   {
     id: 2,
@@ -24,6 +27,7 @@ const cartItems = [
     rating: 5,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    amount: 1,
   },
   {
     id: 3,
@@ -35,18 +39,33 @@ const cartItems = [
     rating: 4,
     numberOfReviews: 16,
     description: 'lorem ipsum',
+    amount: 1,
   },
 ];
 function CartPage() {
+  const { cart, total, amount, clearCart } = useGlobalContext();
+  if (cart.length === 0) {
+    return (
+      <section className="cart-page">
+        <div className="cart-container">
+          <div class="cart-header">
+            <h3 class="cart-title">Your cart is currently empty</h3>
+          </div>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className="cart-page">
       <div className="cart-container">
         <div class="cart-header">
           <h3 class="cart-title">Shopping Cart</h3>
-          <button className="btn clear-btn">Remove All</button>
+          <button className="btn clear-btn" onClick={clearCart}>
+            Remove All
+          </button>
         </div>
         <div class="cart-items">
-          {cartItems.map((item) => {
+          {cart.map((item) => {
             return <CartItem key={item.id} {...item} />;
           })}
         </div>
@@ -57,10 +76,10 @@ function CartPage() {
               <div class="Subtotal">
                 <h3>Subtotal</h3>
               </div>
-              <div class="num-of-items">2 items</div>
+              <div class="num-of-items">{amount} items</div>
             </div>
             <div class="total-amount">
-              <h3>$6.18</h3>
+              <h3>${total}</h3>
             </div>
           </div>
           <button class="btn checkout-btn">Checkout</button>
