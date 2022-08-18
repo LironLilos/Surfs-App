@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
@@ -11,12 +12,14 @@ import SingleProduct from './pages/SingleProduct';
 import CartPage from './pages/CartPage';
 import Registration from './pages/Registration';
 import Login from './pages/LoginPage';
-import { useGlobalContext } from './components/Context';
+import ErrorPage from './pages/ErrorPage';
+import { useGlobalContext } from './context/cart_context';
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <Sidebar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="products" element={<ProductsPage />} />
@@ -27,6 +30,7 @@ function App() {
         <Route path="cart" element={<CartPage />} />
         <Route path="registration" element={<Registration />} />
         <Route path="login" element={<Login />} />
+        <Route path="error" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </Router>

@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import pay from '../assets/pay.png';
 import googleplay from '../assets/google-play.jpg';
 import appstore from '../assets/app-store.jpg';
+import styled from 'styled-components';
 
 function Footer() {
   return (
-    <footer className="footer section-padding">
+    <Wrapper className="section-padding">
       <div className="footer-colomn">
-        {/* <h3 className="logo">Surf's App</h3> */}
         <h4>Contact</h4>
         <p>
           <strong>Address: </strong> 7272C Evergreen Ave. Port Charlotte, FL
@@ -63,12 +63,66 @@ function Footer() {
       </div>
       <div className="copyright">
         <p>
-          {/*   <FaRegCopyright /> */}
           &copy; {new Date().getFullYear()} Surf's App. All Rights Reserved.
         </p>
       </div>
-    </footer>
+    </Wrapper>
   );
 }
 
 export default Footer;
+
+const Wrapper = styled.main`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #ececec;
+
+  .footer-colomn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .logo {
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 16px;
+    padding-bottom: 20px;
+  }
+  p {
+    font-size: 15px;
+    margin: 0 0 8px 0;
+  }
+  a {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .follow {
+    margin-top: 20px;
+  }
+  svg {
+    fill: #465b52;
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+  svg:hover,
+  footer a:hover {
+    fill: #088178;
+    color: #088178;
+  }
+
+  .pay {
+    padding-top: 1rem;
+  }
+  .copyright {
+    width: 100%;
+    text-align: center;
+  }
+  .install-btn img {
+    margin: 0 5px 10px 0;
+    border: 1px solid #465b52;
+    border-radius: 5px;
+  }
+`;

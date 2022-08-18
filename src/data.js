@@ -4,78 +4,85 @@ const products = [
     name: 'SUP SURFTECH GENERATOR',
     category: 'sup',
     img: '/images/products/SUP SURFTECH GENERATOR.jpg',
-    price: 720,
+    price: 72000,
     countInStock: 1,
     rating: 4.5,
     numberOfReviews: 18,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl arcu, iaculis at sem et, vulputate consectetur magna. Integer nec nisi eu est semper aliquet at vel lectus. Proin malesuada turpis vel varius mollis. Ut hendrerit neque at turpis accumsan iaculis. Cras in ligula non dolor accumsan malesuada.',
+    featuredProduct: true,
   },
   {
     id: 2,
     name: 'SUP SURFTECH THE LIDO',
     category: 'sup',
     img: '/images/products/SUP SURFTECH THE LIDO.jpg',
-    price: 2000,
+    price: 200000,
     countInStock: 2,
     rating: 5,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: true,
   },
   {
     id: 3,
     name: 'SURFTECH DREAMLINER SURFBOARD',
     category: 'sup',
     img: '/images/products/SURFTECH DREAMLINER SURFBOARD.jpg',
-    price: 720,
+    price: 72000,
     countInStock: 2,
     rating: 4,
     numberOfReviews: 16,
     description: 'lorem ipsum',
+    featuredProduct: true,
   },
   {
     id: 4,
     name: 'SURFTECH X PURA VIDA TCP 2-PIECE ADJUSTABLE PADDLE',
     category: 'sup',
     img: '/images/products/SURFTECH X PURA VIDA TCP 2-PIECE ADJUSTABLE PADDLE.jpg',
-    price: 720,
+    price: 50000,
     countInStock: 2,
     rating: 3.5,
     numberOfReviews: 38,
     description: 'lorem ipsum',
+    featuredProduct: true,
   },
   {
     id: 5,
     name: 'FORRO AERO RACK PADS 28 ROOF PADS',
     category: 'sup',
     img: '/images/products/FORRO AERO RACK PADS 28 ROOF PADS.jpg',
-    price: 1200,
+    price: 120000,
     countInStock: 2,
     rating: 0.5,
     numberOfReviews: 10,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 6,
     name: 'SEAGLASS 2-PIECE ADJUSTABLE PADDLE',
     category: 'sup',
     img: '/images/products/SEAGLASS 2-PIECE ADJUSTABLE PADDLE.jpg',
-    price: 720,
+    price: 72000,
     countInStock: 2,
     rating: 5,
     numberOfReviews: 20,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 7,
     name: 'SWIFFER-FISH 2-PIECE ADJUSTABLE PADDLE',
     category: 'sup',
     img: '/images/products/SWIFFER-FISH 2-PIECE ADJUSTABLE PADDLE.jpg',
-    price: 720,
+    price: 72000,
     countInStock: 2,
     rating: 3,
     numberOfReviews: 50,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 8,
@@ -87,6 +94,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 9,
@@ -98,6 +106,7 @@ const products = [
     rating: 0.5,
     numberOfReviews: 10,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 10,
@@ -109,6 +118,7 @@ const products = [
     rating: 5,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 11,
@@ -120,6 +130,7 @@ const products = [
     rating: 4,
     numberOfReviews: 16,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 12,
@@ -131,6 +142,7 @@ const products = [
     rating: 3.5,
     numberOfReviews: 38,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 13,
@@ -142,6 +154,7 @@ const products = [
     rating: 3,
     numberOfReviews: 50,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 14,
@@ -153,6 +166,7 @@ const products = [
     rating: 5,
     numberOfReviews: 20,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 15,
@@ -164,6 +178,7 @@ const products = [
     rating: 4.5,
     numberOfReviews: 18,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 16,
@@ -175,6 +190,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 17,
@@ -186,6 +202,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 18,
@@ -197,6 +214,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 19,
@@ -208,6 +226,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 20,
@@ -219,6 +238,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 21,
@@ -230,6 +250,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 22,
@@ -241,6 +262,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 23,
@@ -252,6 +274,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 24,
@@ -263,6 +286,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 25,
@@ -274,6 +298,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 26,
@@ -285,6 +310,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 27,
@@ -296,6 +322,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 28,
@@ -307,6 +334,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 29,
@@ -318,6 +346,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 30,
@@ -329,6 +358,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 31,
@@ -340,6 +370,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 32,
@@ -351,6 +382,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 33,
@@ -362,6 +394,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 34,
@@ -373,6 +406,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 35,
@@ -384,6 +418,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
   {
     id: 36,
@@ -395,6 +430,7 @@ const products = [
     rating: 4,
     numberOfReviews: 12,
     description: 'lorem ipsum',
+    featuredProduct: false,
   },
 ];
 

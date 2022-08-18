@@ -1,11 +1,15 @@
 import React from 'react';
 import BeachCam from '../components/BeachCam';
+import styled from 'styled-components';
+
 function BeachCamPage() {
   return (
-    <section className="beach-cam-page">
+    <Wrapper>
       <BeachCam />
-    </section>
+    </Wrapper>
   );
 }
 
 export default BeachCamPage;
+
+const Wrapper = styled.main``;

@@ -1,10 +1,11 @@
 import React from 'react';
 import products from '../data';
 import Product from './Product';
+import styled from 'styled-components';
 
 function Products({ categoryProduct }) {
   return (
-    <div className="products-container">
+    <Wrapper className="products-container">
       <div className="products-container">
         {categoryProduct === 'all'
           ? products.map((product) => {
@@ -28,8 +29,17 @@ function Products({ categoryProduct }) {
             return <Product key={id} {...product} />;
           })} */}
       </div>
-    </div>
+    </Wrapper>
   );
 }
 
 export default Products;
+
+const Wrapper = styled.main`
+  .products-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+  }
+`;

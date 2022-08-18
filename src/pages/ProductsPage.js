@@ -3,7 +3,9 @@ import Products from '../components/Products';
 import { Link } from 'react-router-dom';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { useState } from 'react';
+import styled from 'styled-components';
 
+import backgroundImg from '../assets/image-from-rawpixel-id-3282142-jpeg.jpg';
 const sportCategories = [
   'all',
   'surf',
@@ -18,7 +20,7 @@ function ProductsPage() {
   const [categoryProduct, setCategoryProduct] = useState('all');
 
   return (
-    <section className="products-page">
+    <Wrapper>
       <div className="products-page-header">
         <h2>ONLINE SURF SHOP</h2>
       </div>
@@ -28,6 +30,7 @@ function ProductsPage() {
           return (
             <button
               key={index}
+              className="btn"
               onClick={() => {
                 setCategoryProduct(sport);
               }}
@@ -36,48 +39,6 @@ function ProductsPage() {
             </button>
           );
         })}
-        {/* <button
-          onClick={() => {
-            setCategoryProduct('all');
-          }}
-        >
-          ALL
-        </button>
-        <button
-          onClick={() => {
-            setCategoryProduct('surf');
-          }}
-        >
-          SURF
-        </button>
-        <button
-          onClick={() => {
-            setCategoryProduct('skate');
-          }}
-        >
-          SKATE
-        </button>
-        <button
-          onClick={() => {
-            setCategoryProduct('sap');
-          }}
-        >
-          SAP
-        </button>
-        <button
-          onClick={() => {
-            setCategoryProduct('wind-surf');
-          }}
-        >
-          WIND SURF
-        </button>
-        <button
-          onClick={() => {
-            setCategoryProduct('kite-surf');
-          }}
-        >
-          KITE SURF
-        </button> */}
       </div>
       <div className="section-padding ">
         <Products categoryProduct={categoryProduct} />
@@ -95,8 +56,43 @@ function ProductsPage() {
           </span>
         </Link>
       </div>
-    </section>
+    </Wrapper>
   );
 }
 
 export default ProductsPage;
+
+const Wrapper = styled.main`
+  margin-bottom: 40px;
+
+  .products-page-header {
+    background-image: url(${backgroundImg});
+    width: 100%;
+    height: 40vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .products-page-header h2 {
+    color: #fff;
+  }
+
+  .pagination {
+    text-align: center;
+  }
+  .pagination span {
+    background-color: #088178;
+    color: #fff;
+    font-weight: 600;
+    padding: 15px 20px;
+    margin-left: 4px;
+    border-radius: 4px;
+  }
+  .pagination svg {
+    fill: #fff;
+    font-size: 16px;
+  }
+`;
