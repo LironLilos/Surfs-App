@@ -61,10 +61,7 @@ const Wrapper = styled.main`
     padding-top: 7px;
     font-size: 14p;
   }
-  .star svg {
-    fill: gold;
-    font-size: 12px;
-  }
+
   .product-description h4 {
     padding-top: 7px;
     font-size: 15px;

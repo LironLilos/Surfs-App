@@ -5,11 +5,24 @@ import { useState } from 'react';
 import Rating from '../components/Rating';
 /* import FeaturedProducts from '../components/FeaturedProducts'; */
 import styled from 'styled-components';
+import AddToCart from '../components/AddToCart';
 
 function SingleProduct() {
   const [product, setProduct] = useState('surfboard');
-  console.log(useParams);
+
   const { id } = useParams();
+
+  const {
+    name,
+    category,
+    img,
+    price,
+    countInStock,
+    rating,
+    numberOfReviews,
+    description,
+    featuredProduct,
+  } = product;
 
   useEffect(() => {
     const newProduct = products.find((product) => product.id === parseInt(id));
@@ -22,28 +35,27 @@ function SingleProduct() {
       </Link>
       <div className="single-product-details">
         <div className="single-product-img">
-          <img src={product.img} alt="" />
+          <img src={img} alt="" />
         </div>
         <div className="single-product-content">
-          <h6>Home / Products / {product.category}</h6>
-          <h4>{product.name}</h4>
-          <Rating
-            rating={product.rating}
-            numberOfReviews={product.numberOfReviews}
-          />
+          <h6>Home / Products / {category}</h6>
+          <h4>{name}</h4>
+          <Rating rating={rating} numberOfReviews={numberOfReviews} />
           <h5>
-            Available:{' '}
-            <span>
-              {product.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}{' '}
-            </span>
+            <span>{countInStock > 0 ? 'In Stock' : 'Out Of Stock'} </span>
           </h5>
-          <h2>{product.price} $</h2>
-          <input type="number" value="1" min="1" max="3"></input>
-          <button className="btn">Add To Cart</button>
+          <h2>{price} $</h2>
+
+          {countInStock > 0 ? (
+            <AddToCart product={product} />
+          ) : (
+            <span>Out Of Stock</span>
+          )}
           <h4>Product Details</h4>
-          <span>{product.description}</span>
+          <span>{description}</span>
         </div>
       </div>
+
       {/* <FeaturedProducts /> */}
     </Wrapper>
   );

@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
+import styled from 'styled-components';
 
 function Rating({ rating, numberOfReviews }) {
   return (
-    <div className="star">
+    <Wrapper>
       {rating >= 1 ? (
         <FaStar />
       ) : rating >= 0.5 ? (
@@ -32,7 +33,7 @@ function Rating({ rating, numberOfReviews }) {
       ) : (
         <FaRegStar />
       )}
-      {rating >= 5 ? (
+      {rating === 5 ? (
         <FaStar />
       ) : rating >= 4.5 ? (
         <FaStarHalfAlt />
@@ -40,8 +41,15 @@ function Rating({ rating, numberOfReviews }) {
         <FaRegStar />
       )}
       <span> {numberOfReviews} reviews</span>
-    </div>
+    </Wrapper>
   );
 }
 
 export default Rating;
+
+const Wrapper = styled.main`
+  svg {
+    fill: gold;
+    font-size: 12px;
+  }
+`;
