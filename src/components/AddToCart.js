@@ -56,7 +56,7 @@ const Wrapper = styled.main`
   }
   .amount-btn {
     margin-right: 1rem;
-    pointer: cursor;
+    cursor: pointer;
     border: none;
     border-radius: 50%;
     background: none;

@@ -12,8 +12,7 @@ function Footer() {
       <div className="footer-colomn">
         <h4>Contact</h4>
         <p>
-          <strong>Address: </strong> 7272C Evergreen Ave. Port Charlotte, FL
-          33952
+          <strong>Address: </strong> 7272C Evergreen Ave. Hawaii 33952
         </p>
         <p>
           <strong>Phone: </strong> 917-737-0198

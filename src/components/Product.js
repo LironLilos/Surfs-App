@@ -5,7 +5,7 @@ import Rating from './Rating';
 import { BsHandbag, BsPerson } from 'react-icons/bs';
 import styled from 'styled-components';
 
-const formatPrice = (number) => {
+export const formatPrice = (number) => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -19,7 +19,7 @@ function Product({ id, name, img, price, rating, numberOfReviews }) {
       <div className="product-description">
         <h5>{name}</h5>
         <Rating rating={rating} numberOfReviews={numberOfReviews} />
-        <h4>{formatPrice(price)}</h4>
+        <p className="price">{formatPrice(price)}</p>
       </div>
       <Link to={'/cart'} className="cart">
         <BsHandbag />
