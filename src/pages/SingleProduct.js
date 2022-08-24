@@ -3,12 +3,13 @@ import { Link, useParams } from 'react-router-dom';
 import products from '../data';
 import { useState } from 'react';
 import Rating from '../components/Rating';
-/* import FeaturedProducts from '../components/FeaturedProducts'; */
+
 import styled from 'styled-components';
 import AddToCart from '../components/AddToCart';
+import { formatPrice } from '../components/Product';
 
 function SingleProduct() {
-  const [product, setProduct] = useState('surfboard');
+  const [product, setProduct] = useState('');
 
   const { id } = useParams();
 
@@ -21,7 +22,6 @@ function SingleProduct() {
     rating,
     numberOfReviews,
     description,
-    featuredProduct,
   } = product;
 
   useEffect(() => {
@@ -41,10 +41,8 @@ function SingleProduct() {
           <h6>Home / Products / {category}</h6>
           <h4>{name}</h4>
           <Rating rating={rating} numberOfReviews={numberOfReviews} />
-          <h5>
-            <span>{countInStock > 0 ? 'In Stock' : 'Out Of Stock'} </span>
-          </h5>
-          <h2>{price} $</h2>
+
+          <h2>{formatPrice(price)}</h2>
 
           {countInStock > 0 ? (
             <AddToCart product={product} />
@@ -55,8 +53,6 @@ function SingleProduct() {
           <span>{description}</span>
         </div>
       </div>
-
-      {/* <FeaturedProducts /> */}
     </Wrapper>
   );
 }

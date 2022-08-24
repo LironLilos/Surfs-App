@@ -8,7 +8,7 @@ const initialState = {
   isSidebarOpen: false,
   products: products,
   filtered_products: [],
-  sort_products: 'price',
+  sort_products: '',
   filters: {
     search: '',
     category: 'all',
@@ -50,6 +50,7 @@ const ProductsProvider = ({ children }) => {
   const updateFilters = (e) => {
     let name = e.target.name;
     let value = e.target.value;
+
     if (name === 'category') {
       value = e.target.textContent;
     }

@@ -24,12 +24,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="products" element={<ProductsPage />} />
         <Route path="beachcam" element={<BeachCamPage />} />
-        <Route path="about" element={<AboutPage />} />
-        <Route path="contact" element={<ContactPage />} />
+
         <Route path="/:id" element={<SingleProduct />} />
         <Route path="cart" element={<CartPage />} />
-        <Route path="registration" element={<Registration />} />
-        <Route path="login" element={<Login />} />
+
         <Route path="error" element={<ErrorPage />} />
       </Routes>
       <Footer />

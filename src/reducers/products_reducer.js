@@ -47,6 +47,7 @@ const products_reducer = (state, action) => {
     const { search, category, price, inStock } = state.filters;
 
     let tempProducts = [...products];
+
     //filtering- search
     if (search) {
       tempProducts = tempProducts.filter((product) => {

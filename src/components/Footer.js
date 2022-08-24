@@ -23,16 +23,16 @@ function Footer() {
         <div className="follow">
           <h4>Follow Us</h4>
           <div className="social-icons">
-            <Link to={'/about'}>
+            <Link to={'/'}>
               <FaFacebookF />
             </Link>
-            <Link to={'/about'}>
+            <Link to={'/'}>
               <FaTwitter />
             </Link>
-            <Link to={'/about'}>
+            <Link to={'/'}>
               <FaInstagram />
             </Link>
-            <Link to={'/about'}>
+            <Link to={'/'}>
               <FaYoutube />
             </Link>
           </div>
@@ -40,16 +40,16 @@ function Footer() {
       </div>
       <div className="footer-colomn">
         <h4>About</h4>
-        <Link to={'/about'}>About Us</Link>
-        <Link to={'/about'}>Delivery Information</Link>
-        <Link to={'/about'}>Privacy Policy</Link>
-        <Link to={'/about'}>Contact Us</Link>
+        <Link to={'/'}>About Us</Link>
+        <Link to={'/'}>Delivery Information</Link>
+        <Link to={'/'}>Privacy Policy</Link>
+        <Link to={'/'}>Contact Us</Link>
       </div>
       <div className="footer-colomn ">
         <h4>My Account</h4>
-        <Link to={'/about'}>Sign In</Link>
-        <Link to={'/about'}>View Cart</Link>
-        <Link to={'/about'}>Track Order</Link>
+        <Link to={'/'}>Sign In</Link>
+        <Link to={'/'}>View Cart</Link>
+        <Link to={'/'}>Track Order</Link>
       </div>
       <div className="footer-colomn install">
         <h4>Install App</h4>

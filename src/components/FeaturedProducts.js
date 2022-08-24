@@ -31,6 +31,7 @@ export default FeaturedProducts;
 
 const Wrapper = styled.main`
   text-align: center;
+
   .products-container {
     display: flex;
     justify-content: space-between;

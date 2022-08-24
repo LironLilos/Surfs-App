@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaBars, FaTimes, FaRegUser } from 'react-icons/fa';
 import { BsHandbag, BsPerson } from 'react-icons/bs';
-import { useGlobalContext } from '../context/cart_context';
+import { useCartContext } from '../context/cart_context';
 import styled from 'styled-components';
 import { useProductsContext } from '../context/products_context';
 
@@ -22,20 +22,11 @@ export const menuList = [
     text: 'live beach cam',
     url: '/beachcam',
   },
-  {
-    id: 4,
-    text: 'about',
-    url: '/about',
-  },
-  {
-    id: 5,
-    text: 'contact',
-    url: '/contact',
-  },
 ];
 
 function Navbar() {
   const { openSidebar, isSidebarOpen } = useProductsContext();
+  const { total_items } = useCartContext();
   return (
     <NavContainer>
       <div className="nav-container">
@@ -61,7 +52,7 @@ function Navbar() {
           <Link to="/cart" className="cart-btn">
             <span className="cart-btn-container">
               <BsHandbag />
-              <span className="cart-value">1</span>
+              <span className="cart-value">{total_items}</span>
             </span>
           </Link>
           <button type="button" className="auth-btn">
@@ -80,6 +71,11 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
 
   .nav-container {
     width: 90vw;

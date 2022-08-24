@@ -4,12 +4,13 @@ import styled from 'styled-components';
 import { menuList } from './Navbar';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaBars, FaTimes, FaRegUser } from 'react-icons/fa';
-import { BsHandbag } from 'react-icons/bs';
+import { BsHandbag, BsPerson } from 'react-icons/bs';
 import { useProductsContext } from '../context/products_context';
+import { useCartContext } from '../context/cart_context';
 
 function Sidebar() {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
-  /* const isOpen = true; */
+  const { total_items } = useCartContext();
   return (
     <SidebarContainer>
       <aside
@@ -32,20 +33,20 @@ function Sidebar() {
               </li>
             );
           })}
-          <li>
-            <Link to={'/checkout'}>checkout</Link>
-          </li>
+          {/*   <li>
+            <Link to={'/'}>checkout</Link>
+          </li> */}
         </ul>
         <div className="cart-btn-wrapper">
-          <Link to="/cart" className="cart-btn">
+          <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
             <span className="cart-btn-container">
-              <FaShoppingCart />
-              <span className="cart-value">1</span>
+              <BsHandbag />
+              <span className="cart-value">{total_items}</span>
             </span>
           </Link>
-          <button type="button" className="auth-btn">
-            <FaRegUser />
-          </button>
+          <Link to="/cart" className="auth-btn" onClick={closeSidebar}>
+            <BsPerson />
+          </Link>
         </div>
       </aside>
     </SidebarContainer>
@@ -128,6 +129,10 @@ const SidebarContainer = styled.main`
     svg {
       height: 1.8rem;
       margin-left: 5px;
+      font-size: 1.5rem;
+    }
+    svg:hover {
+      font-size: 2rem;
     }
   }
   .cart-value {
@@ -155,6 +160,10 @@ const SidebarContainer = styled.main`
     svg {
       margin-left: 5px;
       height: 1.8rem;
+      font-size: 1.8rem;
+    }
+    svg:hover {
+      font-size: 2rem;
     }
   }
   @media screen and (min-width: 992px) {

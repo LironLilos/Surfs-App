@@ -9,7 +9,7 @@ import products from '../data';
 import { useProductsContext } from '../context/products_context';
 import { formatPrice } from '../components/Product';
 
-const reducer = (state, action) => {};
+/* const reducer = (state, action) => {}; */
 
 const getCategory = () => {
   let category = products.map((product) => product.category);
@@ -119,7 +119,12 @@ function ProductsPage() {
         </div>
       </section>
       <div className="pagination">
-        <Link to={'/products'}>
+        <button>1</button>
+        <button>2</button>
+        <button>
+          <FaLongArrowAltRight />
+        </button>
+        {/*     <Link to={'/products'}>
           <span>1</span>
         </Link>
         <Link to={'/products'}>
@@ -129,7 +134,7 @@ function ProductsPage() {
           <span>
             <FaLongArrowAltRight />
           </span>
-        </Link>
+        </Link> */}
       </div>
     </Wrapper>
   );
@@ -232,17 +237,20 @@ const Wrapper = styled.main`
   .pagination {
     text-align: center;
   }
-  .pagination span {
+  .pagination button {
     background-color: #088178;
     color: #fff;
+    font-size: 16px;
     font-weight: 600;
     padding: 15px 20px;
     margin-left: 4px;
     border-radius: 4px;
+    border: none;
+    cursor: pointer;
   }
   .pagination svg {
     fill: #fff;
-    font-size: 16px;
+    font-size: 12px;
   }
   @media (min-width: 768px) {
     section {

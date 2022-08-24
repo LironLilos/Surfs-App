@@ -1,17 +1,29 @@
-import React, { useContext, useEffect, useReducer, useState } from 'react';
-import { cartItems } from '../pages/CartPage';
+import React, { useContext, useEffect, useReducer } from 'react';
 import reducer from '../reducers/cart_reducer';
 
-const AppContext = React.createContext();
+const CartContext = React.createContext();
 
-const initialState = {
-  cart: cartItems,
-  total: 0,
-  amount: 0,
+const getLocalStorage = () => {
+  let cart = localStorage.getItem('cart');
+  if (cart) {
+    return JSON.parse(localStorage.getItem('cart'));
+  } else {
+    return [];
+  }
 };
 
-const AppProvider = ({ children }) => {
+const initialState = {
+  cart: getLocalStorage(),
+  total_items: 0,
+  subtotal: 0,
+};
+
+export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const addToCart = (id, amount, product) => {
+    dispatch({ type: 'ADD_TO_CART', payload: { id, amount, product } });
+  };
 
   const clearCart = () => {
     dispatch({ type: 'CLEAR_CART' });
@@ -28,18 +40,29 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    dispatch({ type: 'GET_TOTALS' });
+    dispatch({ type: 'GET_CART_TOTALS' });
+  }, [state.cart]);
+
+  //Local storage
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(state.cart));
   }, [state.cart]);
 
   return (
-    <AppContext.Provider
-      value={{ ...state, clearCart, removeItem, increaseItem, decreaseItem }}
+    <CartContext.Provider
+      value={{
+        ...state,
+        addToCart,
+        clearCart,
+        removeItem,
+        increaseItem,
+        decreaseItem,
+      }}
     >
       {children}
-    </AppContext.Provider>
+    </CartContext.Provider>
   );
 };
-export const useGlobalContext = () => {
-  return useContext(AppContext);
+export const useCartContext = () => {
+  return useContext(CartContext);
 };
-export { AppContext, AppProvider };

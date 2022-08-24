@@ -1,56 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from '../components/CartItem';
-import { useGlobalContext } from '../context/cart_context';
+import { useCartContext } from '../context/cart_context';
 import styled from 'styled-components';
+import { formatPrice } from '../components/Product';
 
-export const cartItems = [
-  {
-    id: 1,
-    name: 'SUP SURFTECH GENERATOR',
-    category: 'sup',
-    img: '/images/products/SUP SURFTECH GENERATOR.jpg',
-    price: 720,
-    countInStock: 1,
-    rating: 4.5,
-    numberOfReviews: 18,
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl arcu, iaculis at sem et, vulputate consectetur magna. Integer nec nisi eu est semper aliquet at vel lectus. Proin malesuada turpis vel varius mollis. Ut hendrerit neque at turpis accumsan iaculis. Cras in ligula non dolor accumsan malesuada.',
-    amount: 1,
-  },
-  {
-    id: 2,
-    name: 'SUP SURFTECH THE LIDO',
-    category: 'sup',
-    img: '/images/products/SUP SURFTECH THE LIDO.jpg',
-    price: 200,
-    countInStock: 2,
-    rating: 5,
-    numberOfReviews: 12,
-    description: 'lorem ipsum',
-    amount: 1,
-  },
-  {
-    id: 3,
-    name: 'SURFTECH DREAMLINER SURFBOARD',
-    category: 'sup',
-    img: '/images/products/SURFTECH DREAMLINER SURFBOARD.jpg',
-    price: 720,
-    countInStock: 2,
-    rating: 4,
-    numberOfReviews: 16,
-    description: 'lorem ipsum',
-    amount: 1,
-  },
-];
 function CartPage() {
-  const { cart, total, amount, clearCart } = useGlobalContext();
+  const { cart, amount, clearCart, total_items, subtotal } = useCartContext();
   if (cart.length === 0) {
     return (
       <Wrapper>
         <div className="cart-container">
+          <Link to="/products" className="btn">
+            Back To Products
+          </Link>
           <div class="cart-header">
-            <h3 class="cart-title">Your cart is currently empty</h3>
+            <h3 class="cart-title">Your cart is empty</h3>
+            <Link to={'/products'} className="btn">
+              Back To Products
+            </Link>
           </div>
         </div>
       </Wrapper>
@@ -61,6 +29,7 @@ function CartPage() {
       <div className="cart-container">
         <div class="cart-header">
           <h3 class="cart-title">Shopping Cart</h3>
+
           <button className="btn clear-btn" onClick={clearCart}>
             Remove All
           </button>
@@ -71,16 +40,17 @@ function CartPage() {
           })}
         </div>
         <hr />
+
         <div class="checkout">
           <div class="total">
             <div>
               <div class="Subtotal">
                 <h3>Subtotal</h3>
               </div>
-              <div class="num-of-items">{amount} items</div>
+              <div class="num-of-items">{total_items} items</div>
             </div>
             <div class="total-amount">
-              <h3>${total}</h3>
+              <h3>{formatPrice(subtotal)}</h3>
             </div>
           </div>
           <button class="btn checkout-btn">Checkout</button>
@@ -93,17 +63,21 @@ function CartPage() {
 export default CartPage;
 
 const Wrapper = styled.main`
-  height: 100vh;
+  ${'' /* height: 100vh; */}
   display: flex;
   justify-content: center;
   align-items: center;
 
+  .back-to-products {
+  }
   .cart-container {
+    min-height: 80vh;
     height: 85%;
     width: 70%;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0px 25px 40px #41414133;
+    margin: 20px 0;
   }
   .cart-header {
     margin: auto;
@@ -125,7 +99,6 @@ const Wrapper = styled.main`
     display: flex;
     flex-direction: column;
   }
-
   .subtitle {
   }
   .counter {
@@ -149,7 +122,6 @@ const Wrapper = styled.main`
   }
   .amount {
   }
-
   hr {
     width: 66%;
     float: right;
@@ -179,7 +151,7 @@ const Wrapper = styled.main`
   .total-amount {
   }
   .checkout-btn {
-    margin-top: 14px;
+    margin: 14px 0 18px 0;
     width: 100%;
   }
 `;

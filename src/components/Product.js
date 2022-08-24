@@ -21,12 +21,14 @@ function Product({ id, name, img, price, rating, numberOfReviews }) {
         <Rating rating={rating} numberOfReviews={numberOfReviews} />
         <p className="price">{formatPrice(price)}</p>
       </div>
-      <Link to={'/cart'} className="cart">
-        <BsHandbag />
-      </Link>
-      <Link to={`/${id}`} className="details">
-        Details
-      </Link>
+      <div className="cart-details-links">
+        <Link to={`/${id}`} className="details">
+          Details
+        </Link>
+        <Link to={'/cart'} className="cart">
+          <BsHandbag />
+        </Link>
+      </div>
     </Wrapper>
   );
 }
@@ -43,7 +45,6 @@ const Wrapper = styled.main`
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
   margin: 15px 0;
   transition: 0.2 ease;
-  position: relative;
 
   :hover {
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
@@ -68,6 +69,10 @@ const Wrapper = styled.main`
     font-weight: 700;
     color: #088178;
   }
+  .cart-details-links {
+    display: flex;
+    justify-content: space-between;
+  }
   .cart svg {
     border-radius: 50px;
     background-color: #e8f6ea;
@@ -75,7 +80,7 @@ const Wrapper = styled.main`
     font-size: 30px;
     fill: #088178;
     border: 1px solid #cce7d0;
-    position: absolute;
+
     bottom: 20px;
     right: 14px;
   }
