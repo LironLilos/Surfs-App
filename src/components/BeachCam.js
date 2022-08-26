@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaCompass, FaWind, FaTemperatureHigh } from 'react-icons/fa';
 import { GiWaveSurfer, GiCctvCamera } from 'react-icons/gi';
 import { format } from 'date-fns';
@@ -6,47 +6,95 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import backgroundImg from '../assets/men-girls-are-surfing.jpg';
 
-function BeachCam() {
-  const currentDate = new Date();
-  let currentDateFormatted = format(
-    new Date(currentDate),
-    'd MMMM y | k:m | EEEE'
-  );
+//Date-fns
+const currentDate = new Date();
+let currentDateFormatted = format(
+  new Date(currentDate),
+  'd MMMM y | k:m | EEEE'
+);
 
+//Weather API - OpenWeather
+const query = 'hawaii';
+const units = 'metric';
+const apiKey = '21907856bb8629c4b85e1ffd8010a675';
+
+const url =
+  'https://api.openweathermap.org/data/2.5/weather?q=' +
+  query +
+  '&appid=' +
+  apiKey +
+  '&units=' +
+  units;
+
+function BeachCam() {
+  const [loading, setLoading] = useState(true);
+  const [weather, setWeather] = useState([]);
+
+  const fetchWeather = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(url);
+      const weather = await response.json();
+      setLoading(false);
+      setWeather(weather);
+      console.log(weather);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchWeather();
+  }, []);
+
+  if (loading) {
+    return (
+      <main>
+        <h1>Loading...</h1>
+      </main>
+    );
+  }
+
+  const temp = Math.round(weather.main.temp);
+  const direction = 360 - weather.wind.deg;
+  const wind = Math.round(weather.wind.speed);
+  const gust = weather.wind.gust;
+
+  console.log(temp, direction, wind, gust);
+
+  const weatherData = [
+    { name: 'temp', value: temp, icon: <FaTemperatureHigh />, units: '°C' },
+    { name: 'direction', value: direction, icon: <FaCompass />, units: 'NW' },
+    { name: 'gust', value: gust, icon: <GiWaveSurfer />, units: 'NW' },
+    { name: 'wind', value: wind, icon: <FaWind />, units: 'KN' },
+  ];
   return (
     <Wrapper>
       <h2>Our Beach Now</h2>
-      <div className="webcam-data">
-        <div className="webcam-icons">
-          <h3 className="date">{currentDateFormatted}</h3>
-          <div className="direction">
-            <FaCompass />
-            <h4>Direction</h4>
-            <h4>SW 195</h4>
-          </div>
-          <div className="gust">
-            <GiWaveSurfer />
-            <h4>Gust</h4>
-            <h4>SW 195</h4>
-          </div>
-          <div className="wind">
-            <FaWind />
-            <h4>Wind</h4>
-            <h4>SW 195</h4>
-          </div>
-          <div className="temperature">
-            <FaTemperatureHigh />
-            <h4>Temperature</h4>
-            <h4>27°C</h4>
-          </div>
-          <div className="forecast-page">
-            <GiCctvCamera />
-            <Link to={'/beachcam'}>
-              <button className="forecast-btn">Forecast And Beach cam</button>
-            </Link>
-          </div>
+      <section className="beach-cam-container">
+        <div className="date">
+          <h3>{currentDateFormatted}</h3>
         </div>
-      </div>
+        <div className="icons">
+          {weatherData.map((item) => {
+            const { name, icon, value, units } = item;
+            return (
+              <div className="icon">
+                <h4>{name}</h4>
+                <h4>{icon}</h4>
+                <h4>
+                  {value}
+                  {units}
+                </h4>
+              </div>
+            );
+          })}
+        </div>
+        <Link to="/beachcam" className="btn">
+          forecast page
+        </Link>
+      </section>
     </Wrapper>
   );
 }
@@ -55,35 +103,37 @@ export default BeachCam;
 
 const Wrapper = styled.main`
   text-align: center;
-  width: 100%;
+  background-image: url(${backgroundImg});
+  background-position: center;
+  ${'' /*  height: 500px; */}
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 3rem;
+  text-transform: capitalize;
 
-  .webcam-data {
-    background-image: url(${backgroundImg});
-    background-position: center;
-    background-size: 100%;
-    width: 100%;
-    height: 500px;
-    padding: 100px 0 100px 100px;
+  h2 {
+    margin-bottom: 1rem;
   }
-  .webcam-icons {
+  h4 {
+    margin: 0.5rem;
+  }
+  .beach-cam-container {
     background: rgba(255, 255, 255, 0.5);
     width: 70%;
+    margin: auto;
+    padding: 3rem;
+  }
+  .icon {
+    height: 6rem;
+    width: 6rem;
+  }
+  .icons {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 90px;
+    margin-bottom: 3rem;
   }
-  h3.date {
-    width: 100%;
-    text-align: center;
-  }
-
-  .webcam-data svg {
-    fill: #465b52;
-    font-size: 4rem;
-    margin-bottom: 12px;
-  }
-
-  .forecast-btn {
+  .date {
+    margin-bottom: 2rem;
   }
 `;
