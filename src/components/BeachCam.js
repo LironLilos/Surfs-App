@@ -14,7 +14,7 @@ let currentDateFormatted = format(
 );
 
 //Weather API - OpenWeather
-const query = 'hawaii';
+const query = 'naharia';
 const units = 'metric';
 const apiKey = '21907856bb8629c4b85e1ffd8010a675';
 
@@ -59,7 +59,7 @@ function BeachCam() {
   const temp = Math.round(weather.main.temp);
   const direction = 360 - weather.wind.deg;
   const wind = Math.round(weather.wind.speed);
-  const gust = weather.wind.gust;
+  const gust = Math.round(weather.wind.gust);
 
   console.log(temp, direction, wind, gust);
 
@@ -77,10 +77,10 @@ function BeachCam() {
           <h3>{currentDateFormatted}</h3>
         </div>
         <div className="icons">
-          {weatherData.map((item) => {
+          {weatherData.map((item, index) => {
             const { name, icon, value, units } = item;
             return (
-              <div className="icon">
+              <div key={index} className="icon">
                 <h4>{name}</h4>
                 <h4>{icon}</h4>
                 <h4>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Products from '../components/Products';
 import { Link } from 'react-router-dom';
-import { FaLongArrowAltRight } from 'react-icons/fa';
+import { FaLongArrowAltRight, FaSearch } from 'react-icons/fa';
 
 import styled from 'styled-components';
 import backgroundImg from '../assets/image-from-rawpixel-id-3282142-jpeg.jpg';
@@ -9,14 +9,26 @@ import products from '../data';
 import { useProductsContext } from '../context/products_context';
 import { formatPrice } from '../components/Product';
 
-/* const reducer = (state, action) => {}; */
-
 const getCategory = () => {
   let category = products.map((product) => product.category);
   return ['all', ...new Set(category)];
 };
 
+const paginate = (filtered_products) => {
+  const itemsPerPage = 6;
+  const pages = Math.ceil(filtered_products.length / itemsPerPage);
+
+  const newProducts = Array.from({ length: pages }, (_, index) => {
+    const start = index * itemsPerPage;
+    return filtered_products.slice(start, start + itemsPerPage);
+    console.log(newProducts);
+  });
+  return newProducts;
+};
+
 function ProductsPage() {
+  const [page, setPage] = useState(0);
+
   const {
     filtered_products,
     updateSort,
@@ -28,6 +40,17 @@ function ProductsPage() {
   } = useProductsContext();
 
   const categories = getCategory();
+
+  const filteredProductsPages = paginate(filtered_products)[page];
+
+  const handlePage = (index) => {
+    setPage(index);
+  };
+
+  const updateFiltersAndPages = (name, value) => {
+    updateFilters(name, value);
+    setPage(0);
+  };
 
   return (
     <Wrapper>
@@ -44,22 +67,26 @@ function ProductsPage() {
                   name="search"
                   placeholder="Search"
                   className="search-input"
-                  onChange={updateFilters}
+                  onChange={updateFiltersAndPages}
                 ></input>
               </div>
               <div className="form-control category">
                 <h5>Category</h5>
                 <div>
-                  {categories.map((category, index) => {
+                  {categories.map((item, index) => {
                     return (
                       <button
                         key={index}
                         type="button"
-                        className="categories-btn"
-                        onClick={updateFilters}
+                        className={`${
+                          category === item
+                            ? 'categories-btn active-btn'
+                            : 'categories-btn'
+                        }`}
+                        onClick={updateFiltersAndPages}
                         name="category"
                       >
-                        {category}
+                        {item}
                       </button>
                     );
                   })}
@@ -68,10 +95,11 @@ function ProductsPage() {
               <div className="form-control">
                 <h5>Price</h5>
                 <p>{formatPrice(price)}</p>
+
                 <input
                   type="range"
                   name="price"
-                  onChange={updateFilters}
+                  onChange={updateFiltersAndPages}
                   min={min_price}
                   max={max_price}
                   value={price}
@@ -83,7 +111,7 @@ function ProductsPage() {
                   type="checkbox"
                   name="inStock"
                   id="inStock"
-                  onChange={updateFilters}
+                  onChange={updateFiltersAndPages}
                   checked={inStock}
                 />
               </div>
@@ -115,26 +143,25 @@ function ProductsPage() {
               </select>
             </form>
           </div>
-          <Products />
+          {filtered_products < 1 ? (
+            <h4>0 products found</h4>
+          ) : (
+            <Products filteredProductsPages={filteredProductsPages} />
+          )}
         </div>
       </section>
       <div className="pagination">
-        <button>1</button>
-        <button>2</button>
+        {paginate(filtered_products).map((item, index) => {
+          return (
+            <button key={index} onClick={() => handlePage(index)}>
+              {index + 1}
+            </button>
+          );
+        })}
+        {/*  
         <button>
           <FaLongArrowAltRight />
-        </button>
-        {/*     <Link to={'/products'}>
-          <span>1</span>
-        </Link>
-        <Link to={'/products'}>
-          <span>2</span>
-        </Link>
-        <Link to={'/products'}>
-          <span>
-            <FaLongArrowAltRight />
-          </span>
-        </Link> */}
+        </button> */}
       </div>
     </Wrapper>
   );
@@ -219,6 +246,9 @@ const Wrapper = styled.main`
     border-bottom: 1px solid transparent;
     letter-spacing: 0.1rem;
     cursor: pointer;
+  }
+  .active-btn {
+    font-weight: 700;
   }
   .price {
     margin-bottom: 0.25rem;

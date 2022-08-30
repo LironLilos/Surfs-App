@@ -51,10 +51,12 @@ const Wrapper = styled.main`
   margin-bottom: 20px;
 
   .image-item {
-    width: 15%;
+    width: 20%;
+    height: 20%;
     text-align: center;
     margin-right: 50px;
   }
+
   .image-item img {
     height: 100px;
   }

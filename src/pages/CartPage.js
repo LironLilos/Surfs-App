@@ -92,6 +92,7 @@ const Wrapper = styled.main`
     color: #088178;
   }
   .clear-btn {
+    margin: 1.5rem;
   }
   .cart-items {
     margin: auto;
@@ -129,10 +130,17 @@ const Wrapper = styled.main`
   }
   .checkout {
     float: right;
-    margin-right: 5%;
+    margin-right: 10%;
     margin-top: 14px;
     width: 28%;
   }
+  @media (max-width: 900px) {
+    .checkout {
+      margin-right: 20%;
+      width: 40%;
+    }
+  }
+
   .total {
     width: 100%;
     display: flex;

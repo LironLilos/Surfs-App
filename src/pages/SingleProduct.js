@@ -10,6 +10,7 @@ import { formatPrice } from '../components/Product';
 
 function SingleProduct() {
   const [product, setProduct] = useState('');
+  const [readMore, setReadMore] = useState(false);
 
   const { id } = useParams();
 
@@ -28,33 +29,47 @@ function SingleProduct() {
     const newProduct = products.find((product) => product.id === parseInt(id));
     setProduct(newProduct);
   }, []);
-  return (
-    <Wrapper className="section-padding">
-      <Link to="/products" className="btn back-to-products">
-        Back To Products
-      </Link>
-      <div className="single-product-details">
-        <div className="single-product-img">
-          <img src={img} alt="" />
-        </div>
-        <div className="single-product-content">
-          <h6>Home / Products / {category}</h6>
-          <h4>{name}</h4>
-          <Rating rating={rating} numberOfReviews={numberOfReviews} />
 
-          <h2>{formatPrice(price)}</h2>
+  if (product) {
+    return (
+      <Wrapper className="section-padding">
+        <Link to="/products" className="btn back-to-products">
+          Back To Products
+        </Link>
+        <div className="single-product-details">
+          <div className="single-product-img">
+            <img src={img} alt="" />
+          </div>
+          <div className="single-product-content">
+            <h6>Home / Products / {category}</h6>
+            <h4>{name}</h4>
+            <Rating rating={rating} numberOfReviews={numberOfReviews} />
 
-          {countInStock > 0 ? (
-            <AddToCart product={product} />
-          ) : (
-            <span>Out Of Stock</span>
-          )}
-          <h4>Product Details</h4>
-          <span>{description}</span>
+            <h2>{formatPrice(price)}</h2>
+
+            {countInStock > 0 ? (
+              <AddToCart product={product} />
+            ) : (
+              <span>Out Of Stock</span>
+            )}
+            <h4>Product Details</h4>
+
+            <span>
+              {readMore ? description : description.substring(0, 200)}
+              <button
+                className="read-more"
+                onClick={() => {
+                  setReadMore(!readMore);
+                }}
+              >
+                {readMore ? 'Show Less' : 'Read More'}
+              </button>
+            </span>
+          </div>
         </div>
-      </div>
-    </Wrapper>
-  );
+      </Wrapper>
+    );
+  }
 }
 
 export default SingleProduct;
@@ -96,6 +111,15 @@ const Wrapper = styled.main`
   }
   .single-product-content span {
     line-height: 25px;
+  }
+  .read-more {
+    border: none;
+    color: #49a6e9;
+    cursor: pointer;
+    background: none;
+    margin-left: 1rem;
+    font-size: 16px;
+    text-decoration: underline;
   }
   .back-to-products {
     margin: 40px;

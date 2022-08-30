@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import products from '../data';
 import Product from './Product';
 import styled from 'styled-components';
 import { useProductsContext } from '../context/products_context';
 
-function Products() {
+function Products({ filteredProductsPages }) {
   const {
     products,
     filtered_products,
@@ -12,9 +12,10 @@ function Products() {
     updateFilters,
     clearFilters,
   } = useProductsContext();
+
   return (
     <Wrapper>
-      {filtered_products.map((product) => {
+      {filteredProductsPages.map((product) => {
         const { id } = product;
         return <Product key={id} {...product} />;
       })}
@@ -26,7 +27,7 @@ export default Products;
 
 const Wrapper = styled.main`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 20px;
-  flex-wrap: wrap;
 `;

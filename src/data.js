@@ -21,7 +21,8 @@ const products = [
     countInStock: 0,
     rating: 5,
     numberOfReviews: 12,
-    description: 'lorem ipsum',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut consequat semper viverra. Lacus vestibulum sed arcu non odio euismod. Arcu dictum varius duis at consectetur lorem donec. Viverra orci sagittis eu volutpat odio facilisis mauris. Feugiat sed lectus vestibulum mattis ullamcorper. Enim diam vulputate ut pharetra sit. Scelerisque eu ultrices vitae auctor eu augue ut lectus arcu. Urna duis convallis convallis tellus. Magna fermentum iaculis eu non diam. Et malesuada fames ac turpis egestas. Urna cursus eget nunc scelerisque viverra mauris in aliquam. Facilisi morbi tempus iaculis urna id volutpat. Facilisi etiam dignissim diam quis enim. Consequat semper viverra nam libero. Lacus vel facilisis volutpat est velit egestas dui id ornare.',
     featuredProduct: true,
   },
   {
@@ -33,7 +34,8 @@ const products = [
     countInStock: 4,
     rating: 4,
     numberOfReviews: 16,
-    description: 'lorem ipsum',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut consequat semper viverra. Lacus vestibulum sed arcu non odio euismod. Arcu dictum varius duis at consectetur lorem donec. Viverra orci sagittis eu volutpat odio facilisis mauris. Feugiat sed lectus vestibulum mattis ullamcorper. Enim diam vulputate ut pharetra sit. Scelerisque eu ultrices vitae auctor eu augue ut lectus arcu. Urna duis convallis convallis tellus. Magna fermentum iaculis eu non diam. Et malesuada fames ac turpis egestas. Urna cursus eget nunc scelerisque viverra mauris in aliquam. Facilisi morbi tempus iaculis urna id volutpat. Facilisi etiam dignissim diam quis enim. Consequat semper viverra nam libero. Lacus vel facilisis volutpat est velit egestas dui id ornare.',
     featuredProduct: true,
   },
   {
@@ -45,7 +47,8 @@ const products = [
     countInStock: 7,
     rating: 3.5,
     numberOfReviews: 38,
-    description: 'lorem ipsum',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut consequat semper viverra. Lacus vestibulum sed arcu non odio euismod. Arcu dictum varius duis at consectetur lorem donec. Viverra orci sagittis eu volutpat odio facilisis mauris. Feugiat sed lectus vestibulum mattis ullamcorper. Enim diam vulputate ut pharetra sit. Scelerisque eu ultrices vitae auctor eu augue ut lectus arcu. Urna duis convallis convallis tellus. Magna fermentum iaculis eu non diam. Et malesuada fames ac turpis egestas. Urna cursus eget nunc scelerisque viverra mauris in aliquam. Facilisi morbi tempus iaculis urna id volutpat. Facilisi etiam dignissim diam quis enim. Consequat semper viverra nam libero. Lacus vel facilisis volutpat est velit egestas dui id ornare.',
     featuredProduct: true,
   },
   {
