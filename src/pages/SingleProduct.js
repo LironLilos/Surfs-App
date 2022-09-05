@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom';
 import products from '../data';
 import { useState } from 'react';
 import Rating from '../components/Rating';
-
 import styled from 'styled-components';
 import AddToCart from '../components/AddToCart';
 import { formatPrice } from '../components/Product';
@@ -28,7 +27,7 @@ function SingleProduct() {
   useEffect(() => {
     const newProduct = products.find((product) => product.id === parseInt(id));
     setProduct(newProduct);
-  }, []);
+  }, [id]);
 
   if (product) {
     return (
@@ -38,7 +37,7 @@ function SingleProduct() {
         </Link>
         <div className="single-product-details">
           <div className="single-product-img">
-            <img src={img} alt="" />
+            <img src={img} alt={name} />
           </div>
           <div className="single-product-content">
             <h6>Home / Products / {category}</h6>

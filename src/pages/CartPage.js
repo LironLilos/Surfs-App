@@ -14,8 +14,8 @@ function CartPage() {
           <Link to="/products" className="btn">
             Back To Products
           </Link>
-          <div class="cart-header">
-            <h3 class="cart-title">Your cart is empty</h3>
+          <div className="cart-header">
+            <h3 className="cart-title">Your cart is empty</h3>
             <Link to={'/products'} className="btn">
               Back To Products
             </Link>
@@ -27,33 +27,33 @@ function CartPage() {
   return (
     <Wrapper>
       <div className="cart-container">
-        <div class="cart-header">
-          <h3 class="cart-title">Shopping Cart</h3>
+        <div className="cart-header">
+          <h3 className="cart-title">Shopping Cart</h3>
 
           <button className="btn clear-btn" onClick={clearCart}>
             Remove All
           </button>
         </div>
-        <div class="cart-items">
+        <div className="cart-items">
           {cart.map((item) => {
             return <CartItem key={item.id} {...item} />;
           })}
         </div>
         <hr />
 
-        <div class="checkout">
-          <div class="total">
+        <div className="checkout">
+          <div className="total">
             <div>
-              <div class="Subtotal">
+              <div className="Subtotal">
                 <h3>Subtotal</h3>
               </div>
-              <div class="num-of-items">{total_items} items</div>
+              <div className="num-of-items">{total_items} items</div>
             </div>
-            <div class="total-amount">
+            <div className="total-amount">
               <h3>{formatPrice(subtotal)}</h3>
             </div>
           </div>
-          <button class="btn checkout-btn">Checkout</button>
+          <button className="btn checkout-btn">Checkout</button>
         </div>
       </div>
     </Wrapper>
@@ -90,6 +90,7 @@ const Wrapper = styled.main`
   .cart-title {
     font-weight: 700;
     color: #088178;
+    padding-top: 1.5rem;
   }
   .clear-btn {
     margin: 1.5rem;

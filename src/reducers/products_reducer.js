@@ -10,11 +10,8 @@ const products_reducer = (state, action) => {
   if (action.type === 'LOAD_PRODUCTS') {
     let maxPrice = action.payload.map((product) => product.price);
     maxPrice = Math.max(...maxPrice);
-
     return {
       ...state,
-      products: [...action.payload],
-      filtered_products: [...action.payload],
       filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
     };
   }
@@ -26,7 +23,6 @@ const products_reducer = (state, action) => {
   }
   if (action.type === 'SORT_PRODUCTS') {
     const { sort_products, filtered_products } = state;
-
     let tempProducts = [...filtered_products];
 
     if (sort_products === 'price') {
@@ -43,7 +39,6 @@ const products_reducer = (state, action) => {
     return { ...state, filters: { ...state.filters, [name]: value } };
   }
   if (action.type === 'FILTER_PRODUCTS') {
-    const { product } = state;
     const { search, category, price, inStock } = state.filters;
 
     let tempProducts = [...products];

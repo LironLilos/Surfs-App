@@ -9,20 +9,25 @@ function CartItem({ id, name, price, category, img, amount }) {
   return (
     <Wrapper>
       <div className="item-details">
-        <img class="image-item" src={img} alt="" />
-        <div class="item-content">
-          <h5 class="item-title">{name}</h5>
-          <h5 class="item-price">{formatPrice(price)}</h5>
-          <h5 class="item-price">
-            {' '}
+        <img className="image-item" src={img} alt="" />
+        <div className="item-content">
+          <h5 className="item-title">{name}</h5>
+          <h5 className="item-price">{formatPrice(price)}</h5>
+          <h5 className="item-price">
             Total Price: {formatPrice(price * amount)}
           </h5>
-          <div class="counter">
-            <button class="increase-btn btn" onClick={() => decreaseItem(id)}>
+          <div className="counter">
+            <button
+              className="increase-btn btn"
+              onClick={() => decreaseItem(id)}
+            >
               -
             </button>
-            <div class="amount">{amount}</div>
-            <button class="increase-btn btn" onClick={() => increaseItem(id)}>
+            <div className="amount">{amount}</div>
+            <button
+              className="increase-btn btn"
+              onClick={() => increaseItem(id)}
+            >
               +
             </button>
           </div>

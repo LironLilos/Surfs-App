@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import products from '../data';
+import React from 'react';
 import Product from './Product';
 import styled from 'styled-components';
-import { useProductsContext } from '../context/products_context';
+/* import { useProductsContext } from '../context/products_context'; */
 
 function Products({ filteredProductsPages }) {
-  const {
+  /*  const {
     products,
     filtered_products,
     filters: { text, category, min_price, max_price, price, inStock },
     updateFilters,
     clearFilters,
-  } = useProductsContext();
+  } = useProductsContext(); */
 
   return (
     <Wrapper>

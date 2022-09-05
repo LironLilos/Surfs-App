@@ -24,29 +24,26 @@ const ProductsProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: 'LOAD_PRODUCTS', payload: products });
-  }, [products]);
+  }, []);
 
   useEffect(() => {
     dispatch({ type: 'FILTER_PRODUCTS' });
     dispatch({ type: 'SORT_PRODUCTS' });
-  }, [products, state.sort_products, state.filters]);
+  }, [state.sort_products, state.filters]);
 
   const openSidebar = () => {
     dispatch({ type: 'OPEN_SIDEBAR' });
   };
-
   const closeSidebar = () => {
     dispatch({ type: 'CLOSE_SIDEBAR' });
   };
   const loadProducts = () => {
     dispatch({ type: 'LOAD_PRODUCTS' });
   };
-
   const updateSort = (e) => {
     const value = e.target.value;
     dispatch({ type: 'UPDATE_SORT', payload: value });
   };
-
   const updateFilters = (e) => {
     let name = e.target.name;
     let value = e.target.value;

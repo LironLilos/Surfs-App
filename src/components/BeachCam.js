@@ -14,7 +14,7 @@ let currentDateFormatted = format(
 );
 
 //Weather API - OpenWeather
-const query = 'naharia';
+const query = 'nahariya';
 const units = 'metric';
 const apiKey = '21907856bb8629c4b85e1ffd8010a675';
 
@@ -25,6 +25,18 @@ const url =
   apiKey +
   '&units=' +
   units;
+
+export const tempUrl =
+  'https://tile.openweathermap.org/map/temp_new/0/0/0.png?appid=' + apiKey;
+
+export const windUrl =
+  'https://tile.openweathermap.org/map/wind_new/0/0/0.png?appid=' + apiKey;
+
+export const pressureUrl =
+  'https://tile.openweathermap.org/map/pressure_new/0/0/0.png?appid=' + apiKey;
+
+/* const windyApi = 'https://api.windy.com/api/point-forecast/v2'; */
+/* my0Wr5ZLVYG4H7OByPPIX085aYRPu7SC */
 
 function BeachCam() {
   const [loading, setLoading] = useState(true);
@@ -57,7 +69,7 @@ function BeachCam() {
   }
 
   const temp = Math.round(weather.main.temp);
-  const direction = 360 - weather.wind.deg;
+  const direction = weather.wind.deg; //0-360
   const wind = Math.round(weather.wind.speed);
   const gust = Math.round(weather.wind.gust);
 
@@ -65,28 +77,50 @@ function BeachCam() {
 
   const weatherData = [
     { name: 'temp', value: temp, icon: <FaTemperatureHigh />, units: '°C' },
-    { name: 'direction', value: direction, icon: <FaCompass />, units: 'NW' },
-    { name: 'gust', value: gust, icon: <GiWaveSurfer />, units: 'NW' },
-    { name: 'wind', value: wind, icon: <FaWind />, units: 'KN' },
+    {
+      name: 'direction',
+      value: direction,
+      icon: <FaCompass />,
+      units: directionUnits(direction),
+    },
+    { name: 'gust', value: gust, icon: <GiWaveSurfer />, units: 'kt' },
+    { name: 'wind', value: wind, icon: <FaWind />, units: 'kt' },
   ];
+
+  function directionUnits(degrees) {
+    const windDir = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+    degrees += 22.5;
+    degrees = degrees % 360;
+    let which = parseInt(degrees / 45);
+    return windDir[which];
+  }
+
   return (
     <Wrapper>
       <h2>Our Beach Now</h2>
       <section className="beach-cam-container">
         <div className="date">
           <h3>{currentDateFormatted}</h3>
+          <h4>{query}</h4>
         </div>
         <div className="icons">
           {weatherData.map((item, index) => {
             const { name, icon, value, units } = item;
+
             return (
               <div key={index} className="icon">
-                <h4>{name}</h4>
                 <h4>{icon}</h4>
-                <h4>
-                  {value}
-                  {units}
-                </h4>
+                <h4>{name}</h4>
+
+                {isNaN(value) ? (
+                  <h4>No Date</h4>
+                ) : (
+                  <h4>
+                    {value}
+                    <span> </span>
+                    {units}
+                  </h4>
+                )}
               </div>
             );
           })}

@@ -1,8 +1,7 @@
 import React from 'react';
-import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Rating from './Rating';
-import { BsHandbag, BsPerson } from 'react-icons/bs';
+import { BsHandbag } from 'react-icons/bs';
 import styled from 'styled-components';
 
 export const formatPrice = (number) => {

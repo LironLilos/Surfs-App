@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Products from '../components/Products';
-import { Link } from 'react-router-dom';
 import { FaLongArrowAltRight, FaSearch } from 'react-icons/fa';
-
 import styled from 'styled-components';
 import backgroundImg from '../assets/image-from-rawpixel-id-3282142-jpeg.jpg';
 import products from '../data';
@@ -21,7 +19,6 @@ const paginate = (filtered_products) => {
   const newProducts = Array.from({ length: pages }, (_, index) => {
     const start = index * itemsPerPage;
     return filtered_products.slice(start, start + itemsPerPage);
-    console.log(newProducts);
   });
   return newProducts;
 };
@@ -33,13 +30,10 @@ function ProductsPage() {
     filtered_products,
     updateSort,
     sort_products,
-    products,
     filters: { search, category, min_price, max_price, price, inStock },
     updateFilters,
     clearFilters,
   } = useProductsContext();
-
-  const categories = getCategory();
 
   const filteredProductsPages = paginate(filtered_products)[page];
 
@@ -65,6 +59,7 @@ function ProductsPage() {
                 <input
                   type="text"
                   name="search"
+                  value={search}
                   placeholder="Search"
                   className="search-input"
                   onChange={updateFiltersAndPages}
@@ -73,7 +68,7 @@ function ProductsPage() {
               <div className="form-control category">
                 <h5>Category</h5>
                 <div>
-                  {categories.map((item, index) => {
+                  {getCategory().map((item, index) => {
                     return (
                       <button
                         key={index}
