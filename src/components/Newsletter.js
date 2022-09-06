@@ -44,7 +44,7 @@ const Wrapper = styled.main`
     justify-content: center;
 
     svg {
-      background: #088178;
+      background: #5584ac;
       width: 2.5rem;
       height: 2.5rem;
       fill: #fff;

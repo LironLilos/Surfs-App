@@ -92,7 +92,7 @@ const SidebarContainer = styled.main`
   .links a:hover {
     padding: 1rem 1.5rem;
     padding-left: 2rem;
-    background: #cce7d0;
+    background: #d7e9f7;
   }
   .sidebar {
     position: fixed;
@@ -139,7 +139,7 @@ const SidebarContainer = styled.main`
     position: absolute;
     top: -10px;
     right: -16px;
-    background: #088178;
+    background: #5584ac;
     width: 16px;
     height: 16px;
     display: flex;

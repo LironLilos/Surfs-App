@@ -10,8 +10,8 @@ function AddToCart({ product }) {
   const { addToCart } = useCartContext();
 
   const increaseAmount = () => {
-    setAmount((oldAmount) => {
-      let tempAmount = oldAmount + 1;
+    setAmount((prevAmount) => {
+      let tempAmount = prevAmount + 1;
       if (tempAmount > countInStock) {
         tempAmount = countInStock;
       }
@@ -20,8 +20,8 @@ function AddToCart({ product }) {
   };
 
   const decreaseAmount = () => {
-    setAmount((oldAmount) => {
-      let tempAmount = oldAmount - 1;
+    setAmount((prevAmount) => {
+      let tempAmount = prevAmount - 1;
       if (tempAmount < 1) {
         tempAmount = 1;
       }

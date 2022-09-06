@@ -113,7 +113,7 @@ const Wrapper = styled.main`
   }
   .read-more {
     border: none;
-    color: #49a6e9;
+    color: #95d1cc;
     cursor: pointer;
     background: none;
     margin-left: 1rem;

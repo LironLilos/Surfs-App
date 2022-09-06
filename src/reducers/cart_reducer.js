@@ -78,7 +78,7 @@ const reducer = (state, action) => {
     );
     return { ...state, subtotal, total_items };
   }
-  throw new Error(`No Matching "${action.type}" - action type`);
+  throw new Error(`No Matching action type`);
 };
 
 export default reducer;

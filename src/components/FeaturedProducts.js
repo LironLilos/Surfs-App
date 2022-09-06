@@ -35,7 +35,10 @@ const Wrapper = styled.main`
   .products-container {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
+    padding-top: 1.5rem;
     flex-wrap: wrap;
+  }
+  button {
+    margin-top: 2rem;
   }
 `;

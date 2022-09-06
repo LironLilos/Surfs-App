@@ -1,17 +1,8 @@
 import React from 'react';
 import Product from './Product';
 import styled from 'styled-components';
-/* import { useProductsContext } from '../context/products_context'; */
 
 function Products({ filteredProductsPages }) {
-  /*  const {
-    products,
-    filtered_products,
-    filters: { text, category, min_price, max_price, price, inStock },
-    updateFilters,
-    clearFilters,
-  } = useProductsContext(); */
-
   return (
     <Wrapper>
       {filteredProductsPages.map((product) => {

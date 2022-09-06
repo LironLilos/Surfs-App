@@ -263,7 +263,7 @@ const Wrapper = styled.main`
     text-align: center;
   }
   .pagination button {
-    background-color: #088178;
+    background-color: #5584ac;
     color: #fff;
     font-size: 16px;
     font-weight: 600;

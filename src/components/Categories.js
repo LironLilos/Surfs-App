@@ -63,12 +63,7 @@ const Wrapper = styled.main`
   .category-box:hover {
     filter: blur(1);
   }
-  ${
-    '' /*  .category-box h2 {
-    color: #fff;
-    padding-bottom: 8px;
-  } */
-  }
+
   .category-link {
     background-color: transparent;
     border: 1px solid white;
@@ -78,8 +73,8 @@ const Wrapper = styled.main`
     letter-spacing: 0.1rem;
   }
   .category-link:hover {
-    background: #088178;
-    border: 1px solid #088178;
+    background: #5584ac;
+    border: 1px solid #5584ac;
   }
   .sup-box {
     background-image: url(${supImg});

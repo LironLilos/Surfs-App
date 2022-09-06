@@ -7,7 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'League Spartan', sans-serif;
-  color: rgb(81, 81, 81);
+  color: #515151;
 }
 
 body {
@@ -47,14 +47,14 @@ a {
 }
 hr {
   border: none;
-  border-top: 1px solid rgb(81, 81, 81);
+  border-top: 1px solid #515151;
 }
 
 .btn {
   font-size: 18px;
   font-weight: 600;
   padding: 15px 30px;
-  background-color: #088178;
+  background-color: #5584ac;
   color: #fff;
   border-radius: 4px;
   cursor: pointer;

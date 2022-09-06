@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaBars, FaTimes, FaRegUser } from 'react-icons/fa';
+import { FaBars, FaTimes, FaRegUser } from 'react-icons/fa';
 import { BsHandbag, BsPerson } from 'react-icons/bs';
 import { useCartContext } from '../context/cart_context';
 import styled from 'styled-components';
@@ -129,7 +129,7 @@ const NavContainer = styled.nav`
 
         &:hover {
           text-decoration: underline;
-          color: #088178;
+          color: #5584ac;
           cursor: pointer;
           transition: all 0.5s ease-in-out;
         }
@@ -159,7 +159,7 @@ const NavContainer = styled.nav`
       position: absolute;
       top: -10px;
       right: -16px;
-      background: #088178;
+      background: #5584ac;
       width: 16px;
       height: 16px;
       display: flex;

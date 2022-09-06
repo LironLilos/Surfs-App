@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Rating from './Rating';
 import { BsHandbag } from 'react-icons/bs';
 import styled from 'styled-components';
+import AddToCart from './AddToCart';
+import { useCartContext } from '../context/cart_context';
 
 export const formatPrice = (number) => {
   return new Intl.NumberFormat('en-US', {
@@ -11,7 +13,12 @@ export const formatPrice = (number) => {
   }).format(number / 100);
 };
 
-function Product({ id, name, img, price, rating, numberOfReviews }) {
+function Product(product) {
+  const { addToCart } = useCartContext();
+  const { id, name, img, price, rating, numberOfReviews, countInStock } =
+    product;
+  const amount = 1;
+
   return (
     <Wrapper key={id}>
       <img src={img} alt="" />
@@ -21,12 +28,22 @@ function Product({ id, name, img, price, rating, numberOfReviews }) {
         <p className="price">{formatPrice(price)}</p>
       </div>
       <div className="cart-details-links">
+        {/*   {countInStock > 0 ? (
+          <AddToCart product={product} />
+        ) : (
+          <p>Out Of Stock</p>
+        )} */}
+
         <Link to={`/${id}`} className="details">
           Details
         </Link>
-        <Link to={'/cart'} className="cart">
-          <BsHandbag />
-        </Link>
+        {countInStock > 0 ? (
+          <Link to={'/cart'} className="cart">
+            <BsHandbag onClick={() => addToCart(id, amount, product)} />
+          </Link>
+        ) : (
+          <p>Out Of Stock</p>
+        )}
       </div>
     </Wrapper>
   );
@@ -38,7 +55,7 @@ const Wrapper = styled.main`
   width: 23%;
   min-width: 250px;
   padding: 10px 12px;
-  border: 1px solid #cce7d0;
+  border: 1px solid #d7e9f7;
   border-radius: 25px;
   cursor: pointer;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
@@ -62,26 +79,17 @@ const Wrapper = styled.main`
     font-size: 14p;
   }
 
-  .product-description h4 {
-    padding-top: 7px;
-    font-size: 15px;
-    font-weight: 700;
-    color: #088178;
-  }
   .cart-details-links {
     display: flex;
     justify-content: space-between;
   }
   .cart svg {
     border-radius: 50px;
-    background-color: #e8f6ea;
+    background-color: #d7e9f7;
     padding: 4px;
     font-size: 30px;
-    fill: #088178;
-    border: 1px solid #cce7d0;
-
-    bottom: 20px;
-    right: 14px;
+    fill: #5584ac;
+    ${'' /*   border: 1px solid #d7e9f7; */}
   }
   button.show-more {
     margin-top: 1rem;

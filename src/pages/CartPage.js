@@ -89,7 +89,7 @@ const Wrapper = styled.main`
   }
   .cart-title {
     font-weight: 700;
-    color: #088178;
+    color: #5584ac;
     padding-top: 1.5rem;
   }
   .clear-btn {

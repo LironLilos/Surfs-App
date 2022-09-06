@@ -37,7 +37,7 @@ const Wrapper = styled.main`
   h1 {
     text-transform: uppercase;
     padding-bottom: 17px;
-    color: #088178;
+    color: #5584ac;
   }
   p {
     padding-bottom: 8px;
@@ -45,8 +45,8 @@ const Wrapper = styled.main`
 
   button:hover {
     background-color: transparent;
-    border: 2px solid #088178;
-    color: #088178;
+    border: 2px solid #5584ac;
+    color: #5584ac;
     font-weight: 700;
   }
 
