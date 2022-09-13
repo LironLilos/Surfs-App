@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaCompass, FaWind, FaTemperatureHigh } from 'react-icons/fa';
-import { GiWaveSurfer, GiCctvCamera } from 'react-icons/gi';
+import { GiWindSlap } from 'react-icons/gi';
 import { format } from 'date-fns';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -14,7 +14,7 @@ let currentDateFormatted = format(
 );
 
 //Weather API - OpenWeather
-const query = 'nahariya';
+const query = 'haifa';
 const units = 'metric';
 const apiKey = '21907856bb8629c4b85e1ffd8010a675';
 
@@ -35,9 +35,6 @@ export const windUrl =
 export const pressureUrl =
   'https://tile.openweathermap.org/map/pressure_new/0/0/0.png?appid=' + apiKey;
 
-/* const windyApi = 'https://api.windy.com/api/point-forecast/v2'; */
-/* my0Wr5ZLVYG4H7OByPPIX085aYRPu7SC */
-
 function BeachCam() {
   const [loading, setLoading] = useState(true);
   const [weather, setWeather] = useState([]);
@@ -49,10 +46,8 @@ function BeachCam() {
       const weather = await response.json();
       setLoading(false);
       setWeather(weather);
-      console.log(weather);
     } catch (error) {
       setLoading(false);
-      console.log(error);
     }
   };
 
@@ -73,8 +68,6 @@ function BeachCam() {
   const wind = Math.round(weather.wind.speed);
   const gust = Math.round(weather.wind.gust);
 
-  console.log(temp, direction, wind, gust);
-
   const weatherData = [
     { name: 'temp', value: temp, icon: <FaTemperatureHigh />, units: '°C' },
     {
@@ -83,7 +76,7 @@ function BeachCam() {
       icon: <FaCompass />,
       units: directionUnits(direction),
     },
-    { name: 'gust', value: gust, icon: <GiWaveSurfer />, units: 'kt' },
+    { name: 'gust', value: gust, icon: <GiWindSlap />, units: 'kt' },
     { name: 'wind', value: wind, icon: <FaWind />, units: 'kt' },
   ];
 
@@ -139,7 +132,7 @@ const Wrapper = styled.main`
   text-align: center;
   background-image: url(${backgroundImg});
   background-position: center;
-  ${'' /*  height: 500px; */}
+
   background-repeat: no-repeat;
   background-size: cover;
   padding: 3rem;

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Rating from './Rating';
 import { BsHandbag } from 'react-icons/bs';
 import styled from 'styled-components';
-import AddToCart from './AddToCart';
 import { useCartContext } from '../context/cart_context';
 
 export const formatPrice = (number) => {
@@ -28,12 +27,6 @@ function Product(product) {
         <p className="price">{formatPrice(price)}</p>
       </div>
       <div className="cart-details-links">
-        {/*   {countInStock > 0 ? (
-          <AddToCart product={product} />
-        ) : (
-          <p>Out Of Stock</p>
-        )} */}
-
         <Link to={`/${id}`} className="details">
           Details
         </Link>
@@ -65,6 +58,12 @@ const Wrapper = styled.main`
   :hover {
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
   }
+  h5 {
+    margin-bottom: 0.5rem;
+    padding-top: 7px;
+    font-size: 14px;
+  }
+
   img {
     width: 100%;
     border-radius: 20px;
@@ -73,10 +72,6 @@ const Wrapper = styled.main`
   .product-description {
     text-align: start;
     padding: 10px 0;
-  }
-  .product-description h5 {
-    padding-top: 7px;
-    font-size: 14p;
   }
 
   .cart-details-links {
@@ -89,17 +84,12 @@ const Wrapper = styled.main`
     padding: 4px;
     font-size: 30px;
     fill: #5584ac;
-    ${'' /*   border: 1px solid #d7e9f7; */}
+    border: 1px solid #d7e9f7;
   }
-  button.show-more {
-    margin-top: 1rem;
-  }
+
   @media screen and (max-width: 800px) {
     .products-container {
       justify-content: center;
-    }
-    .featured-products .product {
-      margin: 15px;
     }
   }
 `;

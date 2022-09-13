@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import backgroundImg from '../assets/image-from-rawpixel-id-580293-jpeg.jpg';
 import { FaEnvelope } from 'react-icons/fa';
+
 function Newsletter() {
   return (
     <Wrapper className="section-margin">

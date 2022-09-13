@@ -102,14 +102,13 @@ const Wrapper = styled.main`
     margin-top: 20px;
   }
   svg {
-    fill: #465b52;
+    fill: #5584ac;
     margin-right: 1rem;
     font-size: 1rem;
   }
   svg:hover,
   footer a:hover {
-    fill: #088178;
-    color: #088178;
+    fill: #d7e9f7;
   }
 
   .pay {

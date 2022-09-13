@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import products from '../data';
 import Product from './Product';
 import styled from 'styled-components';

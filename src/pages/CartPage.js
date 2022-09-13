@@ -63,13 +63,10 @@ function CartPage() {
 export default CartPage;
 
 const Wrapper = styled.main`
-  ${'' /* height: 100vh; */}
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .back-to-products {
-  }
   .cart-container {
     min-height: 80vh;
     height: 85%;
@@ -122,8 +119,7 @@ const Wrapper = styled.main`
     padding: 5px;
     margin: 5px;
   }
-  .amount {
-  }
+
   hr {
     width: 66%;
     float: right;

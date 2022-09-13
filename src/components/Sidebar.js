@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { menuList } from './Navbar';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaBars, FaTimes, FaRegUser } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 import { BsHandbag, BsPerson } from 'react-icons/bs';
 import { useProductsContext } from '../context/products_context';
 import { useCartContext } from '../context/cart_context';
@@ -33,9 +33,6 @@ function Sidebar() {
               </li>
             );
           })}
-          {/*   <li>
-            <Link to={'/'}>checkout</Link>
-          </li> */}
         </ul>
         <div className="cart-btn-wrapper">
           <Link to="/cart" className="cart-btn" onClick={closeSidebar}>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import styled from 'styled-components';
 import supImg from '../assets/cropped-image-confident-woman-standing-with-paddle-surfboard-sup-sport-hobby-yoga.jpg';
 import skateImg from '../assets/image-from-rawpixel-id-3297192-jpeg.jpg';
@@ -12,11 +11,7 @@ import { useProductsContext } from '../context/products_context';
 const sportProducts = ['surf', 'skate', 'sup', 'wind-surf', 'kite-surf'];
 
 function Categories() {
-  const {
-    filters: { search, category, min_price, max_price, price, inStock },
-    updateFilters,
-    clearFilters,
-  } = useProductsContext();
+  const { updateFilters } = useProductsContext();
 
   return (
     <Wrapper className="section-padding ">

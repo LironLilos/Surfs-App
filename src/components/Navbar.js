@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaRegUser } from 'react-icons/fa';
 import { BsHandbag, BsPerson } from 'react-icons/bs';
@@ -25,7 +25,7 @@ export const menuList = [
 ];
 
 function Navbar() {
-  const { openSidebar, isSidebarOpen } = useProductsContext();
+  const { openSidebar } = useProductsContext();
   const { total_items } = useCartContext();
   return (
     <NavContainer>
